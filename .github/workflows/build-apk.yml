@@ -16,7 +16,7 @@ jobs:
         with: { node-version: 22, cache: npm }
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 21 }
-      - uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@v4
       - run: npm ci
       - name: Test accounting engine and app
         run: npm test
@@ -40,4 +40,4 @@ jobs:
       - name: Attach to release (tags only)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
-        with: { files: MY-VAULT.apk }
+        with: { files: MY-VAULT-apk }
